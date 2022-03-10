@@ -27,14 +27,16 @@ public class Game {
     
     public void setupGame() {
         //Environment of the Game.
+    	
         Room firstRoom = new Room("first name","Front","Ahh the Front of the Room. This is where your journey begins."); 
         Room secondRoom = new Room("second name","Living Room","You have entered the Living Room. I guess you need to add some funiture. That Bookshelf looks nice though."); 
-        Room thirdRoom = new Room("third name","Kitchen","third row long"); 
-        Room fourthRoom = new Room("fourth name","Kitchen","third row long");
+        Room thirdRoom = new Room("third name","Kitchen","You have entered the kitchen. Want to cook?(Can't cook sorry :/ )"); 
+        Room fourthRoom = new Room("fourth name","Hidden Basement","third row long");
         
         Item itemExample = new Item("key", "It is a...normal key?");
         Item itemExample2 = new Item("book", "This belongs in the book shelf apperently.");
         Item itemExample3 = new Item("box", "It is a....box...? It is sealed...");
+        Item itemExample4 = new Item("knife", "It is a....knife?!?! It looks really rusty.");
         
         firstRoom.setExit("second", secondRoom); 
         secondRoom.setExit("third", thirdRoom); 
@@ -46,12 +48,13 @@ public class Game {
         firstRoom.setItem("key", itemExample);
         secondRoom.setItem("book", itemExample2);
         thirdRoom.setItem("box", itemExample3);
+        fourthRoom.setItem("knife", itemExample4);
         
         try {
-            cls_var.main();
-        }catch (Exception e) {
-            System.out.println(e);
-        }
+            //cls_var.main(); 
+       }catch(Exception e) {
+            System.out.println(e); 
+       }
         
         currentRoom = firstRoom;
         printInformation();
@@ -96,12 +99,23 @@ public class Game {
             case "back":
                 back(command);
                 break;
+            case "help":
+            	help(command);
+            	break;
                 
             
         }
         }
     
-    public void use(Command command) {
+    public void help(Command command) {
+		String assist = " ";
+		Room nextRoom;
+		
+		
+		
+	}
+
+	public void use(Command command) {
         if(!command.hasSecondWord()) {
             System.out.println("use what?");
         }
@@ -206,7 +220,7 @@ public class Game {
         }
         else {
             currentRoom = nextRoom;
-        }
+        } 
         
     }
     
@@ -227,5 +241,6 @@ public class Game {
         }
         
     }
+    
     
     }
