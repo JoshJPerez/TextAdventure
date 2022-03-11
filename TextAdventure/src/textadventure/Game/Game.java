@@ -6,6 +6,7 @@ public class Game {
     private Room currentRoom;
     private Player player;
     private CLS cls_var;
+    static boolean gameRunning;
     public Game() {
         parser = new Parser();
         player = new Player();
@@ -15,6 +16,9 @@ public class Game {
         Game game = new Game();
         game.setupGame();
         game.play();
+        gameRunning = false;
+        
+        
     }
     public void printInformation() {
         
@@ -31,7 +35,7 @@ public class Game {
         Room firstRoom = new Room("first name","Front","Ahh the Front of the Room. This is where your journey begins."); 
         Room secondRoom = new Room("second name","Living Room","You have entered the Living Room. I guess you need to add some funiture. That Bookshelf looks nice though."); 
         Room thirdRoom = new Room("third name","Kitchen","You have entered the kitchen. Want to cook?(Can't cook sorry :/ )"); 
-        Room fourthRoom = new Room("fourth name","Hidden Basement","third row long");
+        Room fourthRoom = new Room("fourth name","Hidden Basement","You are at a hidden basement?? When was this here?");
         
         Item itemExample = new Item("key", "It is a...normal key?");
         Item itemExample2 = new Item("book", "This belongs in the book shelf apperently.");
